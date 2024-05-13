@@ -11,7 +11,7 @@ struct TFL_v1 {
         TFLDataset.loadData()
 
         let graph = Graph(adjacencyList: TFLDataset.tubeNetwork)
-        let (_, path) = graph.findShortestPath(from: "Aldgate", to: "Hainault")
+        let (_, path) = graph.findShortestPath(from: "Marble Arch", to: "Great Portland Street")
         
         TFLDataset.showTravelJourney(for: path)
         

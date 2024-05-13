@@ -6,20 +6,42 @@
 //
 
 import Foundation
+import Collections
 
 struct PriorityQueue<T> {
-    private var elements: [(T, Double)] = []
-
+    struct QEntry: Comparable {
+        let element: T
+        let priority: Double
+        
+        static func == (lhs: PriorityQueue<T>.QEntry, rhs: PriorityQueue<T>.QEntry) -> Bool {
+            lhs.priority == rhs.priority
+        }
+        
+        static func < (lhs: PriorityQueue<T>.QEntry, rhs: PriorityQueue<T>.QEntry) -> Bool {
+            lhs.priority < rhs.priority
+        }
+        
+        static func > (lhs: PriorityQueue<T>.QEntry, rhs: PriorityQueue<T>.QEntry) -> Bool {
+            lhs.priority > rhs.priority
+        }
+    }
+    
+    private var entries: Heap<QEntry> = []
+    
     mutating func enqueue(_ element: T, priority: Double) {
-        elements.append((element, priority))
-        elements.sort { $0.1 < $1.1 }
+        entries.insert(.init(element: element, priority: priority))
     }
 
     mutating func dequeue() -> (element: T, priority: Double)? {
-        return elements.isEmpty ? nil : elements.removeFirst()
+        if let val = entries.popMin() {
+            return (val.element, val.priority)
+        } else {
+            return nil
+        }
     }
 
     var isEmpty: Bool {
-        return elements.isEmpty
+        return entries.isEmpty
     }
 }
+
