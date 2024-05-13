@@ -64,24 +64,14 @@ struct Graph {
         return (distances, routes)
     }
     
-    func findShortestPath(from vertexA: String, to vertexB: String) -> (distance: Double, path: String) {
-        let start = vertexA.uppercased()
-        let end = vertexB.uppercased()
+    func findShortestPath(from vertexA: String, to vertexB: String) -> String? {
+        let start = vertexA.capitalized
+        let end = vertexB.capitalized
         
-        let (distances, paths) = self.dijkstra(startVertex: start)
+        let (_, paths) = self.dijkstra(startVertex: start)
         
-//        print("Shortest distances from node \(vertexA): \(distances)")
-//        print("Shortest paths from node \(vertexB): \(paths)")
-        
-        let distance = distances[end]
         let path = paths[end]
         
-//        if let distance, let path {
-//            print("Shortest Path from \(start) to \(end) is | \(path) | Time: \(distance) mins")
-//        } else {
-//            print("Error: Could not find a route between these stations!")
-//        }
-        
-        return (distance ?? 0.0, path ?? "")
+        return path
     }
 }
