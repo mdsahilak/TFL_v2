@@ -109,11 +109,19 @@ struct TFL_v1 {
     }
     
     static func closeTrackSection() {
-        
+        if let section = collectTrackSectionInformation(withDelay: true) {
+            TFLNetwork.closeSection(section)
+        } else {
+            print("ERROR: Invalid Input")
+        }
     }
     
     static func openTrackSection() {
-        
+        if let section = collectTrackSectionInformation(withDelay: true) {
+            TFLNetwork.openSection(section)
+        } else {
+            print("ERROR: Invalid Input")
+        }
     }
     
     static func showTrackSectionDelays() {
