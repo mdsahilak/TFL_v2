@@ -8,6 +8,7 @@
 import Foundation
 import Collections
 
+// Priority Queue backed by a Heap as storage
 struct PriorityQueue<T> {
     struct QEntry: Comparable {
         let element: T
