@@ -10,6 +10,8 @@ struct TFL_v1 {
         
         TFLNetwork.fetchInformation()
         
+        conductPerformanceAnalysis()
+        
     homeLoop: while true {
         showHomeMenu()
         
@@ -198,6 +200,32 @@ struct TFL_v1 {
         let station = readLine() ?? ""
         
         TFLNetwork.showInformation(for: station)
+    }
+    
+    // 0.0018879175186157227
+    static func conductPerformanceAnalysis() {
+        print("**************************************")
+        print("Sample Tests: For Performance Analysis")
+        print("**************************************")
+        
+        let start = CFAbsoluteTimeGetCurrent()
+        
+        let graph = Graph(adjacencyList: TFLNetwork.tubeMap)
+        
+        let station1 = "Marble Arch"
+        let station2 = "Great Portland Street"
+        
+        if let path = graph.findShortestPath(from: station1, to: station2) {
+            TFLNetwork.showTravelJourney(for: path)
+        } else {
+            print("Error: Could not find a path between the given stations!")
+        }
+        
+        let end = CFAbsoluteTimeGetCurrent()
+        
+        print("**************************************")
+        print("Execution Time: \(end - start) seconds")
+        print("**************************************")
     }
     
 }
