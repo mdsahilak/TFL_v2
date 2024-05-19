@@ -38,4 +38,3 @@ struct TrackSectionInfo: CustomStringConvertible, Equatable {
         "\(line.capitalized.trimmingCharacters(in: .whitespacesAndNewlines)) (\(direction)) : \(start) to \(end) - \(delay) min delay"
     }
 }
-

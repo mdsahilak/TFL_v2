@@ -109,7 +109,7 @@ struct TFL_v1 {
     }
     
     static func closeTrackSection() {
-        if let section = collectTrackSectionInformation(withDelay: true) {
+        if let section = collectTrackSectionInformation(withDelay: false) {
             TFLNetwork.closeSection(section)
         } else {
             print("ERROR: Invalid Input")
@@ -117,7 +117,7 @@ struct TFL_v1 {
     }
     
     static func openTrackSection() {
-        if let section = collectTrackSectionInformation(withDelay: true) {
+        if let section = collectTrackSectionInformation(withDelay: false) {
             TFLNetwork.openSection(section)
         } else {
             print("ERROR: Invalid Input")
@@ -189,17 +189,15 @@ struct TFL_v1 {
     
     static func findRouteBetweenStations() {
         print("Please enter starting station: ")
-        let station1 = readLine() ?? ""
+        let stationA = readLine() ?? ""
         
         print("Please enter destination station: ")
-        let station2 = readLine() ?? ""
+        let stationB = readLine() ?? ""
         
-        let graph = Graph(adjacencyList: TFLNetwork.tubeMap)
-        
-        if let path = graph.findShortestPath(from: station1, to: station2) {
-            TFLNetwork.showTravelJourney(for: path)
+        if !stationA.isEmpty && !stationB.isEmpty {
+            TFLNetwork.findRouteBetween(stationA: stationA, stationB: stationB)
         } else {
-            print("Error: Could not find a path between the given stations!")
+            print("ERROR: Invalid Input. Please retry with valid station names!")
         }
     }
     
@@ -210,7 +208,7 @@ struct TFL_v1 {
         TFLNetwork.showInformation(for: station)
     }
     
-    // 0.0018879175186157227
+    // 0.002528071403503418
     static func conductPerformanceAnalysis() {
         print("**************************************")
         print("Sample Tests: For Performance Analysis")
@@ -218,16 +216,7 @@ struct TFL_v1 {
         
         let start = CFAbsoluteTimeGetCurrent()
         
-        let graph = Graph(adjacencyList: TFLNetwork.tubeMap)
-        
-        let station1 = "Marble Arch"
-        let station2 = "Great Portland Street"
-        
-        if let path = graph.findShortestPath(from: station1, to: station2) {
-            TFLNetwork.showTravelJourney(for: path)
-        } else {
-            print("Error: Could not find a path between the given stations!")
-        }
+        TFLNetwork.findRouteBetween(stationA: "Marble Arch", stationB: "Great Portland Street")
         
         let end = CFAbsoluteTimeGetCurrent()
         
@@ -237,6 +226,5 @@ struct TFL_v1 {
     }
     
 }
-
 
 

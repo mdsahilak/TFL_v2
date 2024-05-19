@@ -9,7 +9,7 @@ import Foundation
 
 struct Edge: CustomStringConvertible {
     let destination: String
-    let weight: Double
+    var weight: Double
     
     let line: String
     let direction: String
@@ -21,5 +21,9 @@ struct Edge: CustomStringConvertible {
         self.weight = weight
         self.line = line
         self.direction = direction
+    }
+    
+    func matches(_ track: TrackSectionInfo) -> Bool {
+        return destination.capitalized == track.end.capitalized && line.capitalized.trimmingCharacters(in: .whitespacesAndNewlines) == track.line.capitalized && direction.capitalized == track.direction.capitalized
     }
 }

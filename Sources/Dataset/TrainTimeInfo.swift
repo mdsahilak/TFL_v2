@@ -8,7 +8,7 @@
 import Foundation
 
 struct TrainTimeInfo: Decodable {
-    var line: String { line_.capitalized }
+    var line: String { line_.capitalized.trimmingCharacters(in: .whitespaces) }
     var direction: String { direction_.capitalized }
     var departure: String { departure_.capitalized }
     var destination: String { destination_.capitalized }
@@ -30,4 +30,3 @@ struct TrainTimeInfo: Decodable {
         case time_ = "time"
     }
 }
-
