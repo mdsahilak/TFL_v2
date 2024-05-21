@@ -76,7 +76,7 @@ struct TFLNetwork {
     public static func findRouteBetween(stationA: String, stationB: String) {
         let graph = Graph(adjacencyList: liveTubeMap)
         
-        if let path = graph.findShortestPath(from: stationA, to: stationB) {
+        if let path = graph.findShortestPath(from: stationA, to: stationB), !path.isEmpty {
             TFLNetwork.showTravelJourney(for: path)
         } else {
             print("Error: Could not find a path between the given stations!")
