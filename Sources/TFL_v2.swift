@@ -10,7 +10,7 @@ struct TFL_v1 {
         
         TFLNetwork.fetchInformation()
         
-        conductPerformanceAnalysis()
+//        conductPerformanceAnalysis()
         
     homeLoop: while true {
         showHomeMenu()
