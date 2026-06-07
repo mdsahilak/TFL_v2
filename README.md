@@ -1,9 +1,9 @@
 # TFL v2
 
-A Swift command-line route-planning project that models Transport for London style station data and calculates efficient travel routes using reusable data structures and algorithms.
+A Swift command-line route-planning project that models Transport for London style station data and calculates efficient routes using reusable data structures and algorithms.
 
-`TFL_v2` is the second iteration of the TFL route finder. It improves on the first version by using a cleaner Swift Package setup and Apple’s `swift-collections` package to support a more scalable priority-queue based route search.
+`TFL_v2` is the second iteration of the TFL route finder. It improves on `TFL_v1` by using a Swift Package layout and Apple’s `swift-collections` package for a priority-queue based search approach.
 
-## Why this project matters
+## Highlights
 
-This project is designed to
+- Built
