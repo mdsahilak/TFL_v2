@@ -6,4 +6,5 @@ A Swift command-line route-planning project that models Transport for London sty
 
 ## Highlights
 
-- Built
+- Swift 5.9 command-line application
+- Priority-queue based routing using
