@@ -1,5 +1,12 @@
-#  TFL v2
+# TFL v2
 
-The TFL App using Pre-Built Data Structures & Algorithms.
+Swift command-line route finder for Transport for London style station data.
 
-To Run the app, open the Package.swift file in XCode & hit CMD+R 
+This second version presents the project as a cleaner Swift Package and uses Apple Swift Collections for priority-queue based routing.
+
+## Portfolio value
+
+- Demonstrates Swift package development
+- Applies graph search and data-structure concepts
+- Shows route-planning logic with station data
+- Improves on the first TFL prototype
